@@ -1,0 +1,49 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+
+# Misc
+**/.idea/
+!/.idea/
+.idea/*
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+!.idea/runConfigurations/
+!.idea/modules.xml
+!.idea/libraries/
+!.idea/libraries/**
+!.idea/*.iml
+!.idea/misc.xml
+!.idea/vcs.xml
+
+### Misc temp/lock files
+~$*
+**/~$*
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak

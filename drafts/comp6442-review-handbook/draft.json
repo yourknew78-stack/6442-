@@ -1,0 +1,47 @@
+{
+  "slug": "comp6442-review-handbook",
+  "kind": "other",
+  "title": "COMP2100/6442 零基础复习手册结构草稿",
+  "overview": {
+    "html": "overview.html",
+    "width": 1440,
+    "height": 740
+  },
+  "pages": [
+    {
+      "id": "P1",
+      "label": "总目录与七章顺序",
+      "html": "pages/p1.html",
+      "width": 1240,
+      "height": 1240
+    },
+    {
+      "id": "P2",
+      "label": "知识点零基础学习",
+      "html": "pages/p2.html",
+      "width": 1240,
+      "height": 1450
+    },
+    {
+      "id": "P3",
+      "label": "编程真题完整讲解",
+      "html": "pages/p3.html",
+      "width": 1240,
+      "height": 1620
+    },
+    {
+      "id": "P4",
+      "label": "开放题示范答案",
+      "html": "pages/p4.html",
+      "width": 1240,
+      "height": 1380
+    },
+    {
+      "id": "P5",
+      "label": "选择题与双图示",
+      "html": "pages/p5.html",
+      "width": 1240,
+      "height": 1300
+    }
+  ]
+}

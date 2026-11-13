@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+._*
+__MACOSX/
+
+# 课程题库仓库的本地 git 历史（内容本身照常提交）
+exam-practice-questions/.git.keep/
+
+# 编译产物
+*.class

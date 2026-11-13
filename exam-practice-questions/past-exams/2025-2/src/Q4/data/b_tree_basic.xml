@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Locations>
+    <Country name="Australia" capital="Canberra" population="26000000">
+        <State name="Tasmania">
+            <Region name="South">
+                <City name="Hobart"/>
+            </Region>
+            <Region name="North">
+                <City name="Launceston"/>
+            </Region>
+        </State>
+        <State name="New South Wales">
+            <Region name="Greater Sydney">
+                <City name="Sydney"/>
+                <City name="Parramatta"/>
+                <City name="Liverpool"/>
+            </Region>
+        </State>
+    </Country>
+</Locations>

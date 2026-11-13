@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Locations>
+    <State name="New South Wales">
+        <Population>8545100</Population>
+    </State>
+    <State name="Victoria">
+        <Population>7011100</Population>
+    </State>
+    <State name="Queensland">
+        <Population>5618800</Population>
+    </State>
+    <State name="South Australia">
+        <Population>1891700</Population>
+    </State>
+    <State name="Western Australia">
+        <Population>3008700</Population>
+    </State>
+    <State name="Tasmania">
+        <Population>575800</Population>
+    </State>
+    <State name="Australian Capital Territory">
+        <Population>481700</Population>
+    </State>
+</Locations>

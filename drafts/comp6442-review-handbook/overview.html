@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>复习手册草稿页面地图</title>
+<style>
+  :root { --paper:#fff; --fill:#f3f3f3; --fill-2:#e9e9e9; --line:#c9c9c9; --mid:#6b6b6b; --ink:#1f1f1f; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; background:var(--paper); }
+  body { color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif; -webkit-font-smoothing:antialiased; }
+  .canvas { width:1440px; height:740px; padding:48px 56px; overflow:hidden; }
+  .eyebrow { font-size:11px; letter-spacing:.14em; color:var(--mid); text-transform:uppercase; margin-bottom:12px; }
+  h1 { margin:0 0 8px; font-size:34px; font-weight:650; }
+  .sub { margin:0 0 32px; color:var(--mid); font-size:14px; line-height:1.55; }
+  .map-row { display:flex; align-items:stretch; }
+  .node { width:232px; min-height:216px; border:1px solid var(--line); padding:16px; background:var(--paper); display:flex; flex-direction:column; gap:8px; }
+  .node-id { font-size:11px; letter-spacing:.12em; color:var(--mid); }
+  .node-title { font-size:18px; font-weight:600; line-height:1.35; }
+  .node-list { font-size:13px; line-height:1.65; color:var(--mid); }
+  .arrow { width:40px; display:grid; place-items:center; color:var(--mid); font-size:18px; flex:0 0 40px; }
+  .scope { margin-top:32px; padding:16px 20px; background:var(--fill); border-left:3px solid var(--mid); font-size:14px; line-height:1.7; }
+  .legend { margin-top:24px; padding-top:14px; border-top:1px solid var(--line); display:flex; gap:28px; color:var(--mid); font-size:12px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">Document draft · page map</div>
+  <h1>COMP2100/6442 复习手册：草稿范围</h1>
+  <p class="sub">五张结构稿只确认内容形态与讲解密度，不代表最终手册只有五页。</p>
+  <div class="map-row">
+    <div class="node" style="width:224px; align-self:center;">
+      <div class="node-id">P1</div>
+      <div class="node-title">总目录与七章顺序</div>
+      <div class="node-list">图片优先级<br>七章文件入口<br>来源与答案声明</div>
+    </div>
+    <div class="arrow">→</div>
+    <div style="flex:1; border:1px solid var(--line); padding:16px; background:var(--fill);">
+      <div class="node-id" style="margin-bottom:12px;">每一章都适用 · 七章统一结构</div>
+      <div class="node" style="width:100%; min-height:0; margin-bottom:16px;">
+        <div class="node-id">P2 · 第一部分</div>
+        <div class="node-title">知识点零基础学习</div>
+        <div class="node-list">概念白话解释 · 必要前置基础 · 简短 Java 示例</div>
+      </div>
+      <div class="node-id" style="margin-bottom:12px;">第二部分 · 真题讲解（以下样式按实际题型选用）</div>
+      <div style="display:flex; gap:16px;">
+        <div class="node" style="flex:1; width:auto; min-height:144px;">
+          <div class="node-id">P3</div>
+          <div class="node-title">编程真题</div>
+          <div class="node-list">英文原题与代码<br>中文步骤与完整解答</div>
+        </div>
+        <div class="node" style="flex:1; width:auto; min-height:144px;">
+          <div class="node-id">P4</div>
+          <div class="node-title">开放题</div>
+          <div class="node-list">英文示范答案<br>评分点与替代方案</div>
+        </div>
+        <div class="node" style="flex:1; width:auto; min-height:144px;">
+          <div class="node-id">P5</div>
+          <div class="node-title">选择题与图示</div>
+          <div class="node-list">逐项解析<br>原图＋Mermaid 重绘</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scope"><strong>贯穿规则：</strong>跨考点题完整重复；答案直接显示；近三年优先、早期真题补缺口、最后才用 misc 补充练习。</div>
+  <div class="legend"><span>→ 从总目录进入任一章节</span><span>▭ P3–P5 不是固定顺序</span><span>灰度线框，非最终排版</span></div>
+</div>
+</body>
+</html>

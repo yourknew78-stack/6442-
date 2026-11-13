@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>P2 知识点学习</title>
+<style>
+:root{--paper:#fff;--fill:#f3f3f3;--fill-2:#e9e9e9;--line:#c9c9c9;--mid:#6b6b6b;--ink:#1f1f1f}*{box-sizing:border-box}html,body{margin:0;background:var(--paper)}body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC",sans-serif;color:var(--ink)}.canvas{width:1240px;height:1450px;overflow:hidden;padding:40px 56px}.crumb{font-size:14px;color:var(--mid);margin-bottom:24px}.label{font-size:11px;letter-spacing:.1em;color:var(--mid);text-transform:uppercase}h1{font-size:34px;margin:10px 0 6px}h2{font-size:26px;margin:8px 0 12px}h3{font-size:19px;margin:8px 0 10px}.sub{font-size:15px;color:var(--mid);margin:0 0 20px}.part{font-size:22px;font-weight:650;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:16px 0;margin:20px 0}.block{border:1px solid var(--line);padding:16px 20px;margin-top:16px}.block.soft{background:var(--fill)}p,li{font-size:15px;line-height:1.55}p{margin:8px 0}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.code{background:var(--fill);border:1px solid var(--line);padding:14px 16px;font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;margin:10px 0}.tokens{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.token{border:1px solid var(--line);padding:10px 6px;text-align:center;font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace}.diagram{height:154px;border:1px dashed var(--line);background:var(--fill);display:grid;place-items:center;text-align:center;color:var(--mid);font-size:14px;line-height:1.6;margin-top:10px}.pitfalls{margin:8px 0 0;padding-left:20px}.footer{margin-top:20px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--mid);display:flex;justify-content:space-between}
+</style></head><body><div class="canvas">
+<div class="crumb">总目录 / 第6章 考点A / 第一部分</div><div class="label">一级标题 · 章</div><h1>第6章 考点A：Tokeniser＋Parser</h1><p class="sub">分词与递归下降：先学会把输入切开，再学会检查结构。</p>
+<div class="part">二级标题 · 第一部分：知识点的零基础学习</div>
+<div class="block soft"><div class="label">知识点 1 · 必要前置基础</div><h3>1.1 类、枚举、异常与递归</h3><p>Token 用对象保存“类型＋原文”；TokenType 用枚举限制类型；遇到非法输入时抛出异常；Parser 用递归处理嵌套括号。</p></div>
+<div class="block"><div class="label">知识点 2 · Tokeniser</div><h3>2.1 把字符序列切成有意义的 Token</h3><p>例如输入 <code>1 + 2 * 3</code>，分词器不计算答案，只输出下面这些小单元：</p><div class="tokens"><div class="token">INT<br>"1"</div><div class="token">PLUS<br>"+"</div><div class="token">INT<br>"2"</div><div class="token">TIMES<br>"*"</div><div class="token">INT<br>"3"</div></div><div class="code">Token t = new Token(TokenType.INT, "1");
+// type 告诉 Parser“这是什么”，value 保留原始文本</div></div>
+<div class="block"><div class="label">知识点 3 · 文法与递归下降</div><div class="two"><div><h3>3.1 先写规则，再写方法</h3><div class="code">Exp    → Term (("+" | "-") Term)*
+Term   → Factor (("*" | "/") Factor)*
+Factor → INT | "(" Exp ")"</div><p>每条规则对应一个方法；<code>parseExp()</code> 调用 <code>parseTerm()</code>，因此乘法自然比加法先结合。</p></div><div><h3>3.2 每个方法只负责一种结构</h3><div class="code">Exp parseExp() {
+  Exp left = parseTerm();
+  while (match(PLUS)) {
+    Exp right = parseTerm();
+    left = new OpExp(left, right, PLUS);
+  }
+  return left;
+}</div></div></div></div>
+<div class="two"><div class="block"><div class="label">知识点 4 · 简短例子 AST</div><h3>4.1 <code>1 + 2 * 3</code> 长成什么树？</h3><div class="diagram">Mermaid 重绘图占位<br>根节点为＋，右子树为 2×3<br>（最终版附逐步构建过程）</div></div><div class="block"><div class="label">知识点 5 · 易错点</div><ul class="pitfalls"><li>分词时不应顺手计算表达式。</li><li>读取下一个 Token 前先检查是否越界。</li><li>括号内解析结束后必须消费右括号。</li><li>无法匹配文法时给出明确异常。</li></ul></div></div>
+<div class="footer"><span>章 → 第一部分 → 知识点 1、2……</span><span>下一部分：对应真题讲解</span></div>
+</div></body></html>
