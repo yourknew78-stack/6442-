@@ -1,60 +1,12 @@
-# 第3章 考点F：UML＋SOLID＋重构＋开放题
+# 第3章 考点F：SOLID＋重构＋开放题
 
-> 目标：看懂类图，能用代码证据解释 SOLID，能把“这里不太好”写成具体的重构方案。
+> 目标：能用代码证据解释 SOLID，能把“这里不太好”写成具体的重构方案。UML 读图与类图考点见 [2.1-design-patterns-uml-易读版.md](2.1-design-patterns-uml-易读版.md)。
 >
 > 所有答案均为非官方参考解答。开放题通常没有唯一答案，重点是概念准确、证据具体、方案可执行。
 
 ## 第一部分：知识点的零基础学习
 
-### 知识点 1：UML 类图是在看什么？
-
-把 UML 类图想成“代码的结构说明书”。每个方框通常有三层：类名、字段、方法。
-
-```text
-┌──────────────────────────┐
-│ User                     │  ← 类名
-├──────────────────────────┤
-│ - name: String           │  ← 字段：private String name
-│ # id: String             │  ← 字段：protected String id
-├──────────────────────────┤
-│ + getName(): String      │  ← 方法：public String getName()
-└──────────────────────────┘
-```
-
-| UML 符号 | Java 中的意思 | 最短记法 |
-|---|---|---|
-| `+` | `public` | 大家都能用 |
-| `-` | `private` | 只有本类能用 |
-| `#` | `protected` | 本类、同包、子类可用 |
-| `~` | 包可见 | 不写访问修饰符 |
-| 方法名后的 `: String` | 返回类型 | 不是字段类型 |
-
-#### 1.1 四种关系不要混
-
-```mermaid
-classDiagram
-    class ParkingLot
-    class Floor
-    class Spot
-    class Vehicle
-    class Car
-    ParkingLot "1" o-- "0..*" Floor : aggregation
-    Floor "1" *-- "1..*" Spot : composition
-    Vehicle <|-- Car : generalisation
-    ParkingLot --> Vehicle : association
-```
-
-- **关联 association**：一个对象知道或使用另一个对象，例如 `FavouriteList` 调用 `Observer.update()`。
-- **聚合 aggregation**：整体包含部分，但部分可以独立存在，例如球队与球员。空心菱形 `◇` 在整体一端。
-- **组合 composition**：整体负责部分的生命周期，例如 `User` 创建并拥有自己的 `FavouriteList`。实心菱形 `◆` 在整体一端。
-- **聚合 vs 组合**：两者都是整体—部分关系；部分能独立存在是聚合，整体消失时部分也随之消失是组合。
-- **泛化 generalisation**：就是继承，空心三角箭头指向父类。读作 `Car is a Vehicle`，不是聚合。
-
-多重性写在关联两端：`1` 表示恰好一个，`0..*` 表示零个或多个，`1..*` 表示至少一个。
-
-> 直观检查法：先问“是不是继承”，是则为泛化；再看是不是整体—部分关系。部分能独立存在的是聚合，整体消失时部分也随之消失的是组合；如果不是整体—部分，只是一个对象知道或使用另一个对象，就是关联。
-
-### 知识点 2：SOLID 不是五句口号，而是五种检查问题
+### 知识点 1：SOLID 不是五句口号，而是五种检查问题
 
 | 原则 | 白话解释 | 看代码时问什么 |
 |---|---|---|
@@ -507,7 +459,7 @@ class Service {
 
 `Service` 依赖 `DataReader` 抽象，并由外部传入实现，是 DIP 的常见做法，也方便测试时换成假实现。
 
-### 知识点 3：代码坏味道与重构
+### 知识点 2：代码坏味道与重构
 
 **代码坏味道 code smell** 是“可能有问题、值得调查的信号”，不是必然错误。重构是在不改变外部可观察行为的前提下改善内部结构。
 
@@ -787,7 +739,7 @@ class OrderService {
 
 `OrderService` 只负责顺序，具体工作交给各自的服务。
 
-### 知识点 4：开放题怎样写得有分
+### 知识点 3：开放题怎样写得有分
 
 使用四段式：
 
@@ -1081,445 +1033,11 @@ class Vector2 {
 
 **做题抓手**：LSP 题不要先找“字段像不像”，先检查“替换后，参数、返回值、异常和结果是否仍符合原承诺”。
 
-## 真题讲解 3：按 UML 实现 Observer（2025 S2 Q5）
-
-来源：[`Q5README.md`](../exam-practice-questions/past-exams/2025-2/src/Q5/Q5README.md)、[`UML_ob.png`](../exam-practice-questions/past-exams/2025-2/src/Q5/UML_ob.png)、[`FavouriteList.java`](../exam-practice-questions/past-exams/2025-2/src/Q5/FavouriteList.java)
-
-### 3.1 题目原文
-
-**中文题意：** 按 Observer UML 创建收藏系统类结构；实现观察者的注册／移除、收藏项的按 id 添加与按 id 和名称删除，以及变化通知；最后在 `Main` 中按要求演示两个用户和两个通知服务。
-
-> You are given a UML diagram that demonstrate the design of a favourites management system that applies the Observer design pattern, where a user’s favourites list notifies observers (like a notification service) whenever items change.
->
-> **Task A: Class Structure**
->
-> Create the classes in accordance with the provided UML diagram. You will be marked based on how accurately your code reflects the structure and relationships defined in the UML, for `Observer`, `NotificationService`, `Item`, `User`, and `FavouriteList`.
->
-> Ensure that all classes, fields, and methods exactly match the names and signatures specified in the provided UML diagram. Do not introduce any extra fields or methods, except that you may implement constructor(s), getters, and setters.
->
-> **Task B: Design Pattern Implementation**
->
-> - In `FavouriteList`,
->   - `attach` adds the observer once, without duplicates. No-op if the parameter is null.
->   - `detach` remove the observer passed in if present, no-op otherwise.
->   - `addItem`: adds the `item` to the list of items if no items with the same id exists. No-op otherwise. If successfully added, call `notify("added", item)`.
->   - `removeItem`: removes the `item` from the list of items if an item with the same id and name exists. No-op otherwise. If successfully removed, call `notify("removed", item)`.
-> - In `NotificationService`, `update` should print a message which includes the channel, event, item id and item name. For instance, the printed message may look like `[channel ABC] event: added, item #I1 (exam question)`.
->
-> **Task C: Demonstration / Main Program**
->
-> - Create two Users (with id = "1" and id = "2", respectively) and attach them (through their FavouriteList) to two observers that are NotificationService with `channel` "ABC" and "DEF", respectively.
-> - Add an item (item1) with id `I1` and name `Item 1` to both users' favouriteList.
-> - Add an item (item2) with id `I2` and name `Item 2A` to user2's favouriteList.
-> - Add an item (item3) with id `I2` and name `Item 2B` to user2's favouriteList.
-> - Detach the observer from the second user (with id = "2"), then remove item1 from both users' favouriteLists.
-
-原图：
-
-![2025 S2 Q5 Observer UML 原图](assets/2025-2-q5-uml.png)
-
-Mermaid 重绘：
-
-```mermaid
-classDiagram
-    class User {
-        #String id
-        -String name
-        -FavouriteList favourites
-        +getFavourites() FavouriteList
-        +setFavourites(f: FavouriteList) void
-        +getName() String
-    }
-    class Item {
-        #String id
-        -String name
-    }
-    class FavouriteList {
-        -List~Item~ items
-        -List~Observer~ observers
-        +addItem(item: Item) void
-        +removeItem(item: Item) void
-        +attach(o: Observer) void
-        +detach(o: Observer) void
-        +notify(event: String, item: Item) void
-    }
-    class Observer {
-        <<interface>>
-        +update(event: String, item: Item) void
-    }
-    class NotificationService {
-        -String channel
-    }
-    User *-- FavouriteList
-    FavouriteList o-- Item
-    FavouriteList --> Observer
-    Observer <|.. NotificationService
-```
-
-### 3.2 Task A：Class Structure（类结构）
-
-**English explanation:** Task A checks whether you can translate the UML into code accurately. Create the five types shown in the diagram, preserve every class name, field name, visibility marker, method name, parameter type, and return type, and reproduce the relationships. Constructors, getters, and setters are allowed, but extra fields and methods are not.
-
-**中文讲解：** Task A 就是“照着图纸搭骨架”，暂时不要求你设计新功能。UML 中的五个方框分别对应 `Observer`、`NotificationService`、`Item`、`User` 和 `FavouriteList`。`+` 要写成 `public`，`-` 要写成 `private`，`#` 要写成 `protected`。除了构造器、getter 和 setter，不要自行增加字段或方法。
-
-**解答 / Solution：**
-
-| 类型 | 必须写出的结构 |
-|---|---|
-| `Observer` | 接口；`void update(String event, Item item)` |
-| `Item` | `protected String id`、`private String name`；可写构造器和 getter |
-| `NotificationService` | `private String channel`；`implements Observer`，实现 `update` |
-| `User` | `protected String id`、`private String name`、`private FavouriteList favourites`；实现图中三个方法 |
-| `FavouriteList` | `private List<Item> items`、`private List<Observer> observers`；实现 `addItem`、`removeItem`、`attach`、`detach`、`notify` |
-
-四条关系也要落实到代码：
-
-- `User *-- FavouriteList`：组合，`User` 拥有自己的 `FavouriteList`。
-- `FavouriteList o-- Item`：聚合，列表保存若干 `Item`，但 `Item` 可以独立存在。
-- `FavouriteList --> Observer`：关联，列表通过 `Observer` 接口通知观察者。
-- `Observer <|.. NotificationService`：接口实现，所以写 `NotificationService implements Observer`。
-
-### 3.3 Task B：Design Pattern Implementation（设计模式实现）
-
-**English explanation:** Task B gives the behaviour of each method. A no-op means returning without changing the list and without sending a notification. The duplicate rules are deliberately different: `attach` checks the observer object, `addItem` checks only the item id, and `removeItem` checks both id and name. Notifications are sent only after a successful addition or removal.
-
-**中文讲解：** Task B 是让骨架真正动起来。这里的 **no-op** 就是“什么都不做”：不修改列表、不通知，也不要抛异常。三条重复规则不能混：`attach` 判断观察者是否已经注册；`addItem` 只比较 id；`removeItem` 必须同时比较 id 和 name。只有操作真的成功，才调用 `notify`。
-
-**解答 / Solution：**
-
-```java
-public void attach(Observer o) {
-    if (o != null && !observers.contains(o)) {
-        observers.add(o);
-    }
-}
-
-public void detach(Observer o) {
-    observers.remove(o);
-}
-
-public void addItem(Item item) {
-    if (item == null) {
-        return;
-    }
-    for (Item existing : items) {
-        if (existing.getId().equals(item.getId())) {
-            return;
-        }
-    }
-    items.add(item);
-    notify("added", item);
-}
-
-public void removeItem(Item item) {
-    if (item == null) {
-        return;
-    }
-    for (int i = 0; i < items.size(); i++) {
-        Item existing = items.get(i);
-        if (existing.getId().equals(item.getId())
-                && existing.getName().equals(item.getName())) {
-            items.remove(i);
-            notify("removed", item);
-            return;
-        }
-    }
-}
-
-public void notify(String event, Item item) {
-    for (Observer o : observers) {
-        o.update(event, item);
-    }
-}
-```
-
-`NotificationService` 的解答是打印题目要求的四类信息：
-
-```java
-@Override
-public void update(String event, Item item) {
-    System.out.println("[channel " + channel + "] event: " + event
-            + ", item #" + item.getId() + " (" + item.getName() + ")");
-}
-```
-
-通知链条为：`addItem`／`removeItem` 成功 → `notify` 遍历观察者 → 每个观察者执行 `update`。`FavouriteList` 只依赖 `Observer` 接口，不需要知道具体观察者是不是 `NotificationService`。
-
-### 3.4 Task C：Demonstration / Main Program（演示程序）
-
-**English explanation:** Task C tests whether the rules produce the correct observable behaviour. Attach ABC to user1 and DEF to user2. Item 2B must be rejected because its id `I2` already exists, even though its name differs. After DEF is detached, user2's removal must not notify DEF.
-
-**中文讲解：** Task C 是按题目步骤写 `Main`，并用输出检查前面的规则。`item2` 和 `item3` 的 id 都是 `I2`，所以 `item3` 即使名称不同也不能加入。user2 在删除 item1 前已经移除 DEF，因此 DEF 收不到这次删除通知。
-
-**解答 / Solution：**
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        User user1 = new User("1", "User 1", new FavouriteList());
-        User user2 = new User("2", "User 2", new FavouriteList());
-        NotificationService abc = new NotificationService("ABC");
-        NotificationService def = new NotificationService("DEF");
-
-        user1.getFavourites().attach(abc);
-        user2.getFavourites().attach(def);
-
-        Item item1 = new Item("I1", "Item 1");
-        Item item2 = new Item("I2", "Item 2A");
-        Item item3 = new Item("I2", "Item 2B");
-
-        user1.getFavourites().addItem(item1);
-        user2.getFavourites().addItem(item1);
-        user2.getFavourites().addItem(item2);
-        user2.getFavourites().addItem(item3);
-
-        user2.getFavourites().detach(def);
-        user1.getFavourites().removeItem(item1);
-        user2.getFavourites().removeItem(item1);
-    }
-}
-```
-
-**Expected output / 预期输出：**
-
-```text
-[channel ABC] event: added, item #I1 (Item 1)
-[channel DEF] event: added, item #I1 (Item 1)
-[channel DEF] event: added, item #I2 (Item 2A)
-[channel ABC] event: removed, item #I1 (Item 1)
-```
-
-ABC 收到 user1 的一次添加和一次删除；DEF 只收到 user2 的两次添加。`item3` 被拒绝，所以第三次添加没有输出；user2 的删除发生在 `detach` 之后，所以 DEF 没有删除输出。
-
-### 3.5 读题：先分清两条“重复”规则
-
-- `attach` 的重复看 **observer 是否已在列表中**。
-- `addItem` 的重复只看 **id**；所以同 id 的 item3 不能加入，即使 name 不同。
-- `removeItem` 要同时匹配 **id＋name**。
-- 只有真的添加或删除成功才通知；`detach` 后发生的修改不再通知该观察者。
-
-### 3.6 完整参考实现
-
-`Observer.java`：
-
-```java
-public interface Observer {
-    void update(String event, Item item);
-}
-```
-
-`Item.java`：
-
-```java
-public class Item {
-    protected String id;
-    private String name;
-
-    public Item(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
-```
-
-`NotificationService.java`：
-
-```java
-public class NotificationService implements Observer {
-    private String channel;
-
-    public NotificationService(String channel) {
-        this.channel = channel;
-    }
-
-    @Override
-    public void update(String event, Item item) {
-        System.out.println("[channel " + channel + "] event: " + event
-                + ", item #" + item.getId() + " (" + item.getName() + ")");
-    }
-}
-```
-
-`FavouriteList.java`：
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class FavouriteList {
-    private List<Item> items;
-    private List<Observer> observers;
-
-    public FavouriteList() {
-        this(new ArrayList<>(), new ArrayList<>());
-    }
-
-    public FavouriteList(List<Item> items, List<Observer> observers) {
-        this.items = items;
-        this.observers = observers;
-    }
-
-    public void attach(Observer o) {
-        if (o != null && !observers.contains(o)) {
-            observers.add(o);
-        }
-    }
-
-    public void detach(Observer o) {
-        observers.remove(o);
-    }
-
-    public void addItem(Item item) {
-        if (item == null) {
-            return;
-        }
-        for (Item existing : items) {
-            if (existing.getId().equals(item.getId())) {
-                return;
-            }
-        }
-        items.add(item);
-        notify("added", item);
-    }
-
-    public void removeItem(Item item) {
-        if (item == null) {
-            return;
-        }
-        for (int i = 0; i < items.size(); i++) {
-            Item existing = items.get(i);
-            if (existing.getId().equals(item.getId())
-                    && existing.getName().equals(item.getName())) {
-                items.remove(i);
-                notify("removed", item);
-                return;
-            }
-        }
-    }
-
-    public void notify(String event, Item item) {
-        for (Observer o : observers) {
-            o.update(event, item);
-        }
-    }
-}
-```
-
-`User.java`：
-
-```java
-public class User {
-    protected String id;
-    private String name;
-    private FavouriteList favourites;
-
-    public User(String id, String name, FavouriteList favourites) {
-        this.id = id;
-        this.name = name;
-        this.favourites = favourites;
-    }
-
-    public FavouriteList getFavourites() {
-        return favourites;
-    }
-
-    public void setFavourites(FavouriteList favourites) {
-        this.favourites = favourites;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
-```
-
-`Main.java`：
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        User user1 = new User("1", "User 1", new FavouriteList());
-        User user2 = new User("2", "User 2", new FavouriteList());
-        NotificationService abc = new NotificationService("ABC");
-        NotificationService def = new NotificationService("DEF");
-
-        user1.getFavourites().attach(abc);
-        user2.getFavourites().attach(def);
-
-        Item item1 = new Item("I1", "Item 1");
-        Item item2 = new Item("I2", "Item 2A");
-        Item item3 = new Item("I2", "Item 2B");
-
-        user1.getFavourites().addItem(item1);
-        user2.getFavourites().addItem(item1);
-        user2.getFavourites().addItem(item2);
-        user2.getFavourites().addItem(item3);
-
-        user2.getFavourites().detach(def);
-        user1.getFavourites().removeItem(item1);
-        user2.getFavourites().removeItem(item1);
-    }
-}
-```
-
-**自测预期**：ABC 收到 user1 的添加与删除通知；DEF 只收到 user2 的两次添加通知。item3 被同 id 规则拒绝，user2 的删除发生在 `detach` 后，所以 DEF 不收到删除通知。
-
-## 真题讲解 4：UML 关系辨析（2024 S1 Q4 MCQ9）
-
-来源：[`Q4README.md`](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)、[`UML-MCQ9.png`](../exam-practice-questions/past-exams/2024-1/src/Q4/UML-MCQ9.png)
-
-### 4.1 题目原文
-
-**中文题意：** 阅读停车场的 UML 类图，判断关于组合、聚合、继承、多重性和可见性的四条陈述中哪一条错误。
-
-> Considering the class diagram below, which alternative is INCORRECT?
-
-![MCQ9 UML 原图](assets/2024-1-q4-mcq9-uml.png)
-
-```mermaid
-classDiagram
-    class ParkingLot
-    class Floor
-    class Spot
-    class Vehicle
-    class Car
-    class Motorcycle
-    ParkingLot "1" o-- "0..*" Floor
-    Floor "1" *-- "1..*" Spot
-    Spot "1" o-- "1" Vehicle
-    Vehicle <|-- Car
-    Vehicle <|-- Motorcycle
-```
-
-> A. The relationship between Floor and Spot is a composition. It means that if an instance of Floor is destroyed the Spot instance must also be destroyed.
->
-> B. Car is a Vehicle and Motorcycle is a Vehicle. This relationship is an aggregation.
->
-> C. One ParkingLot has zero or many instances of Floor.
->
-> D. Vehicle is the parent class of Motorcycle and Car. It means that the Car and Motorcycle inherits the operation getColor() and getName(). Besides, the attributes name and color are private in Vehicle class.
-
-### 4.2 参考答案与逐项解析
-
-**答案：B。** 空心三角箭头表示泛化（继承），不是 aggregation。
-
-- **A 正确**：Floor 一端是实心菱形，表示 Floor 与 Spot 是组合。
-- **C 正确**：ParkingLot 端为 `1`，Floor 端为 `0..*`。
-- **D 正确**：`+` 方法是 public，`-` 字段是 private；子类可继承可用的公开操作，但不因此把父类 private 字段变成自己的可访问字段。
-
-## 真题讲解 5：OCP 的设计选择（2024 S1 Q4 MCQ10）
+## 真题讲解 3：OCP 的设计选择（2024 S1 Q4 MCQ10）
 
 来源：[`Q4README.md`](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)
 
-### 5.1 题目原文
+### 3.1 题目原文
 
 **中文题意：** 食谱系统不断新增食谱类型与展示方式；从四个方案中选出最符合开闭原则（OCP）的设计。
 
@@ -1535,18 +1053,18 @@ classDiagram
 >
 > D. Use a single Recipe class and add conditional statements in the displayInfo() method to handle different types of recipes and formats.
 
-### 5.2 参考答案与解析
+### 3.2 参考答案与解析
 
 **答案：B、C。** 两者都允许通过新增类扩展行为，而不是持续修改同一个 `Recipe`。
 
 - **A、D 错**：新增类型仍要修改旧类，D 还会不断扩大条件分支。
 - **注意**： inheritance 不是天然符合 OCP；本题 B 之所以可选，是因为它明确用新子类承载新显示行为。若子类破坏父类契约，仍会违反 LSP。
 
-## 真题讲解 6：识别 RecipeManager 的坏味道（2024 S1 Q4 MCQ11）
+## 真题讲解 4：识别 RecipeManager 的坏味道（2024 S1 Q4 MCQ11）
 
 来源：[`Q4README.md`](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)
 
-### 6.1 题目原文
+### 4.1 题目原文
 
 **中文题意：** 阅读 `RecipeManager` 代码，选出其中存在的坏味道及能消除坏味道的重构建议，如重复、硬编码、神秘命名、死代码、长参数列表等。
 
@@ -1598,7 +1116,7 @@ public class RecipeManager {
 > G. Create a method to calculate recipe calories receiving a list of ingredients may remove one of the existing code smells
 > H. Removing the displaySomething method may remove at least two code smells.
 
-### 6.2 参考答案与解析
+### 4.2 参考答案与解析
 
 **答案：A、B、C、D、E、G、H。**
 
@@ -1612,11 +1130,11 @@ public class RecipeManager {
 | G | 共用计算方法可减少重复，列表也可缩短参数列表。 |
 | H | 删除 `displaySomething` 同时处理神秘命名和死代码。 |
 
-## 真题讲解 7：Player／Team／Match 的重构（2024 S1 Q4 MCQ14）
+## 真题讲解 5：Player／Team／Match 的重构（2024 S1 Q4 MCQ14）
 
 来源：[`Q4README.md`](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)
 
-### 7.1 题目原文
+### 5.1 题目原文
 
 **中文题意：** 针对 Player、Team、Match 三个类，判断哪些重构建议合理：抽象 Person／Coach、引入 Location、公开 players、用枚举表示位置，或把统计塞入 Match。
 
@@ -1661,7 +1179,7 @@ public class Match {
 >
 > E. In case we would like to add and visualise statistics about the matches, related methods and attributes should be in the Match class.
 
-### 7.2 参考答案与解析
+### 5.2 参考答案与解析
 
 **答案：B、D。**
 
@@ -1671,11 +1189,11 @@ public class Match {
 - **C 不选**：直接公开字段破坏封装。
 - **E 不选**：把统计与可视化都塞入 `Match` 会增加职责，应评估独立统计服务或视图类。
 
-## 真题讲解 8：多格式读取设计与 LSP（2023 S2 Q3）
+## 真题讲解 6：多格式读取设计与 LSP（2023 S2 Q3）
 
 来源：[`readme_Q3.md`](../exam-practice-questions/past-exams/2023-2/src/Q3/readme_Q3.md)、[`UML_Q3.png`](../exam-practice-questions/past-exams/2023-2/src/Q3/UML_Q3.png)、[`UML_Example_PenguinologistClass.png`](../exam-practice-questions/past-exams/2023-2/src/Q3/UML_Example_PenguinologistClass.png)
 
-### 8.1 题目原文
+### 6.1 题目原文
 
 **中文题意：** 针对企鹅 App 的多种文件格式读取设计给出模式方案；再根据 UML 与 `Penguinologist` 代码，指出被违反的 SOLID 原则、证据、问题与重构方式。
 
@@ -1725,7 +1243,7 @@ classDiagram
     note for Penguinologist "截图中 getPhotos() 返回 null"
 ```
 
-### 8.2 Q3a：怎样设计“多格式文件读取”？
+### 6.2 Q3a：怎样设计“多格式文件读取”？
 
 **先看清范围：** Q3a 只问第一个功能——读取 JSON、XML、CSV 和 Bespoke 文件。这里先不要讨论用户继承或 LSP。
 
@@ -1813,7 +1331,7 @@ The main design pattern is **Strategy**, because each format has an interchangea
 
 主要模式是 **Strategy**，因为每种格式都是一种可替换的读取算法；工厂可以辅助集中创建对象。新增格式时只需增加新实现，无须修改已有解析器，因此更符合 OCP。App 依赖抽象也符合 DIP，并且测试时可以注入假 Reader。
 
-### 8.3 Q3b：为什么 `Penguinologist` 违反 LSP？
+### 6.3 Q3b：为什么 `Penguinologist` 违反 LSP？
 
 **先看清范围：** Q3b 只分析 `User`、`Penguinologist` 和 `BasicUser` 的继承关系，与 Q3a 的文件读取设计无关。
 
@@ -1883,7 +1401,7 @@ The design violates the **Liskov Substitution Principle**. Clients of `User` can
 
 `Penguinologist` 应返回包含相应照片的有效集合；没有照片时返回空集合。子类不应加强前置条件，也不应削弱后置条件。如果两类用户的照片能力确实不兼容，就应重新设计共同抽象，只在 `User` 中保留共享操作，把特有操作移到独立接口中。
 
-### 8.4 两问不要混
+### 6.4 两问不要混
 
 | 问题 | 核心对象 | 核心答案 |
 |---|---|---|
@@ -1892,11 +1410,11 @@ The design violates the **Liskov Substitution Principle**. Clients of `User` can
 
 **评分点：** Q3a 要写清接口、实现、选择机制和扩展好处；Q3b 要写出 `null`、`NullPointerException` 的替换证据，以及返回有效集合或重设计抽象的改法。
 
-## 真题讲解 9：MDToken 的 SOLID 分析（2023 S1 Q3）
+## 真题讲解 7：MDToken 的 SOLID 分析（2023 S1 Q3）
 
 来源：[`Q3README.md`](../exam-practice-questions/past-exams/2023-1/Q3/Q3README.md)、[`MDToken.java`](../exam-practice-questions/past-exams/2023-1/Q2/MDToken.java)
 
-### 9.1 题目原文
+### 7.1 题目原文
 
 **中文题意：** 分析同时表示有序、无序列表项的 `MDToken`，选择两个被违反的 SOLID 原则，分别说明定义、代码证据、实际后果与具体改进方案。
 
@@ -1966,11 +1484,11 @@ public class MDToken {
 }
 ```
 
-### 9.2 先找证据，再选原则
+### 7.2 先找证据，再选原则
 
 最直观的证据是 `number` 只与有序列表有关，却与所有 token 共用同一个类；不同列表类型还对应不同构造方式。可以把 **SRP** 作为主答案，把 **OCP** 作为第二个有论证的答案。不要把 LSP、ISP 等名词硬套到没有相关结构的代码上。
 
-### 9.3 英文示范答案
+### 7.3 英文示范答案
 
 #### Principle 1 — Single Responsibility Principle
 
@@ -2000,7 +1518,7 @@ I would define a stable `ListItemToken` abstraction and place new behaviour in s
 
 **中文翻译：** 我会定义一个稳定的 `ListItemToken` 抽象，把新行为放在 `TaskItemToken` 等子类中。客户端代码应依赖这个公共抽象，而不是依赖具体子类。工厂或解析器可以根据 Token 类型创建相应的子类对象。这样，新增一种表示方式时，主要通过增加新代码来完成，而不必反复修改公共类。
 
-### 9.4 评分点与替代方案
+### 7.4 评分点与替代方案
 
 - 每个原则都必须完成“定义—代码证据—实际后果—改法”。
 - `number`、多个构造器、列表类型是证据；只写类名不算证据。
