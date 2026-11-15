@@ -1,0 +1,55 @@
+{
+  "folders": [
+    {
+      "name": "01_2025-2_Q2",
+      "path": "01_2025-2_Q2"
+    },
+    {
+      "name": "02_2024-2_Q2",
+      "path": "02_2024-2_Q2"
+    },
+    {
+      "name": "03_2024-1_Q2",
+      "path": "03_2024-1_Q2"
+    },
+    {
+      "name": "04_2023-1_Q1",
+      "path": "04_2023-1_Q1"
+    },
+    {
+      "name": "05_2022-1_Q1",
+      "path": "05_2022-1_Q1"
+    },
+    {
+      "name": "06_2021-2_Q1",
+      "path": "06_2021-2_Q1"
+    },
+    {
+      "name": "07_2020-2_Q2",
+      "path": "07_2020-2_Q2"
+    },
+    {
+      "name": "08_2020-1_Q3",
+      "path": "08_2020-1_Q3"
+    },
+    {
+      "name": "09_2019-2_Q3",
+      "path": "09_2019-2_Q3"
+    },
+    {
+      "name": "10_2019-1_Q4",
+      "path": "10_2019-1_Q4"
+    }
+  ],
+  "settings": {
+    "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home",
+    "java.configuration.runtimes": [
+      {
+        "name": "JavaSE-25",
+        "path": "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home",
+        "default": true
+      }
+    ],
+    "java.server.launchMode": "Standard"
+  }
+}
