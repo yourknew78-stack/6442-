@@ -1,31 +1,35 @@
-# 往年选择题按主题汇总（从简单到难）
+# 选择题真题与 Quiz 2 参考（按主题合并）
 
-收录 `exam-practice-questions/past-exams` 中题面完整的全部 29 道选择题，来自 2025 S2（5 道）、2025 S1（10 道）和 2024 S1（14 道）。
+本文件由原来两份题集合并而来：**往年真题 29 道**（`exam-practice-questions/past-exams`，2025 S2 5 道、2025 S1 10 道、2024 S1 14 道）与 **Quiz 2 45 条**（工作区 `quiz 2/` 的 54 张截图，合并跨图与重复题后整理）。
 
-主题顺序按零基础复习所需的概念数量、代码阅读量和手工推演步骤估计，属于学习顺序建议。同一主题内按年份从近到远排列，同年 S2 在 S1 前，每道题保留原题号。英文题干、选项、代码与原题图片均保留，PDF 换行调整为 Markdown 段落。部分题目在题面后附中文逐项解析，其余题目保持原题面。
+主题顺序沿用「由易到难」的排法：按零基础复习所需的概念数量、代码阅读量和手工推演步骤估计，是学习顺序建议，不是考试分值。同一主题内先放**往年真题**（年份从近到远，同年 S2 在 S1 前），再放 **Quiz 2**（编号顺序，大致按概念 → 应用 → 推演）。
 
-2025 S1 原卷注明每题只有一个正确答案。2024 S1 原卷注明每题至少一个正确选项，需留意题目要求选择 CORRECT 还是 INCORRECT。2025 S2 按各题题干要求作答。
+题目标题前缀：【往年】期末真题，【Quiz 2】本次 quiz 截图。英文题干、选项、代码、原题图片与批改标记全部保留；往年题的中文逐项解析、Quiz 2 的截图折叠块都在各自条目里。
 
-2019 S1 的 PDF 从 Q2 开始，2019 S2 仅有选择题运行说明，2020 S1 缺 Q2，其余现有年份未找到可纳入的选择题题面。2024 S2 Q4 为开放论述题。缺失题面未计入这 29 道。
+**读题注意**：2025 S1 每题只有一个正确答案；2024 S1 每题至少一个正确选项，看清问的是 CORRECT 还是 INCORRECT；2025 S2 按题干要求作答。Quiz 2 截图里的勾选与批改不一定正确，只作参考。2019 S1 的 PDF 从 Q2 开始、2019 S2 只有运行说明、2020 S1 缺 Q2，这些年份没有可纳入的选择题题面。
 
 ## 主题目录
 
-| 顺序 | 主题 | 参考难度 | 题数 | 主要任务 |
-|---|---|---|---:|---|
-| 1 | [软件构建基本概念](#topic-1) | 较易 | 1 | 识别软件构建包含的活动。 |
-| 2 | [软件工程伦理](#topic-2) | 较易 | 1 | 根据隐私、安全和职业责任判断情境。 |
-| 3 | [知识产权与许可证](#topic-3) | 较易 | 2 | 记忆版权、许可证与专利的基本区别。 |
-| 4 | [契约式设计、JML 与文档注释](#topic-4) | 较易 | 2 | 识别规范工具的用途与参数注释写法。 |
-| 5 | [设计模式 — Singleton 单例](#topic-5) | 较易 | 2 | 理解私有构造函数、静态成员与唯一实例。 |
-| 6 | [Android](#topic-6) | 中等 | 3 | 记忆生命周期、返回栈、资源与组件规则。 |
-| 7 | [数据持久化与文件格式](#topic-7) | 中等 | 1 | 结合文件结构判断数据分片是否合适。 |
-| 8 | [UML 类图](#topic-8) | 中等 | 1 | 读懂类之间的关系、多重性与可见性。 |
-| 9 | [代码坏味道与重构](#topic-9) | 中等 | 2 | 阅读代码，识别结构问题及合适的改进。 |
-| 10 | [SOLID 设计原则](#topic-10) | 中等偏难 | 2 | 把开闭原则与里氏替换原则应用到具体设计。 |
-| 11 | [Git 提交历史](#topic-11) | 中等偏难 | 1 | 跟踪提交图、合并操作与分支指针。 |
-| 12 | [Tokeniser、Parser 与文法](#topic-12) | 中等偏难 | 4 | 从概念判断过渡到文法推导与语法树分析。 |
-| 13 | [软件测试与分支覆盖](#topic-13) | 较难 | 3 | 分析控制流、短路条件与最少测试输入。 |
-| 14 | [树 — BST、AVL 与红黑树](#topic-14) | 较难 | 4 | 手动推演插入、旋转、颜色变化、树高与遍历。 |
+| 顺序 | 主题 | 参考难度 | 往年 | Quiz 2 | 合计 | 主要任务 |
+|---|---|---|---:|---:|---:|---|
+| 1 | [软件构建基本概念](#topic-1) | 较易 | 1 | 0 | 1 | 识别软件构建包含的活动。 |
+| 2 | [软件工程伦理](#topic-2) | 较易 | 1 | 0 | 1 | 根据隐私、安全和职业责任判断情境。 |
+| 3 | [知识产权与许可证](#topic-3) | 较易 | 2 | 1 | 3 | 记忆版权、许可证与专利的基本区别。 |
+| 4 | [契约式设计、JML 与文档注释](#topic-4) | 较易 | 2 | 1 | 3 | 识别规范工具的用途与参数注释写法。 |
+| 5 | [设计模式 — Singleton 与其他常用模式](#topic-5) | 较易 | 2 | 9 | 11 | 理解私有构造函数、静态成员与唯一实例。 |
+| 6 | [Android](#topic-6) | 中等 | 3 | 2 | 5 | 记忆生命周期、返回栈、资源与组件规则。 |
+| 7 | [数据持久化与文件格式](#topic-7) | 中等 | 1 | 7 | 8 | 结合文件结构判断数据分片是否合适。 |
+| 8 | [UML 类图](#topic-8) | 中等 | 1 | 3 | 4 | 读懂类之间的关系、多重性与可见性。 |
+| 9 | [代码坏味道与重构](#topic-9) | 中等 | 2 | 0 | 2 | 阅读代码，识别结构问题及合适的改进。 |
+| 10 | [SOLID 设计原则](#topic-10) | 中等偏难 | 2 | 1 | 3 | 把开闭原则与里氏替换原则应用到具体设计。 |
+| 11 | [Git 提交历史](#topic-11) | 中等偏难 | 1 | 5 | 6 | 跟踪提交图、合并操作与分支指针。 |
+| 12 | [Tokeniser、Parser 与文法](#topic-12) | 中等偏难 | 4 | 1 | 5 | 从概念判断过渡到文法推导与语法树分析。 |
+| 13 | [软件测试与分支覆盖](#topic-13) | 较难 | 3 | 6 | 9 | 分析控制流、短路条件与最少测试输入。 |
+| 13A | [性能分析（补充主题）](#topic-13A) | 中等偏难 | 0 | 1 | 1 | 用 Amdahl 定律估算整体加速比。 |
+| 14 | [树 — BST、AVL、红黑树与数据结构选择](#topic-14) | 较难 | 4 | 8 | 12 | 手动推演插入、旋转、颜色变化、树高与遍历。 |
+| | **合计** | | **29** | **45** | **74** | |
+
+数量为 0 的主题表示该批题集没有对应题目。
 
 <a id="topic-1"></a>
 
@@ -33,9 +37,9 @@
 
 参考难度为较易。识别软件构建包含的活动。
 
-### 2024 S1 · MCQ1
+### 【往年】2024 S1 · MCQ1
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 Software Construction - select all that does NOT apply to complete the statement below.
 
@@ -113,15 +117,17 @@ E. Problem definition、G. Planning 属于软件开发前期的问题定义与�
 
 记忆：**Software Construction = Coding + Testing + Debugging + Code Quality + Reuse + Tools**；Problem Definition 与 Planning 属于更大范围的 Software Engineering。
 
+[返回主题目录](#主题目录)
+
 <a id="topic-2"></a>
 
 ## 2. 软件工程伦理
 
 参考难度为较易。根据隐私、安全和职业责任判断情境。
 
-### 2024 S1 · MCQ8
+### 【往年】2024 S1 · MCQ8
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 ETHICS - Select all scenarios where the software engineer's decision
 is well aligned with the IEEE Code of Ethics for software engineers?
@@ -184,15 +190,17 @@ IEEE/ACM《Software Engineering Code of Ethics》有 8 条原则：
 
 一句话：**Public Safety & Interest First.**
 
+[返回主题目录](#主题目录)
+
 <a id="topic-3"></a>
 
 ## 3. 知识产权与许可证
 
 参考难度为较易。记忆版权、许可证与专利的基本区别。
 
-### 2025 S1 · MCQ10
+### 【往年】2025 S1 · MCQ10
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 A colleague has found an implementation of an algorithm publicly available on GitHub, but there is no license listed accompanying the code. Your colleague wants to use this code in their work. Can they? What conditions must they adhere to?
 
@@ -262,9 +270,11 @@ A colleague has found an implementation of an algorithm publicly available on Gi
 
 <a id="topic-3-mcq4-2024"></a>
 
-### 2024 S1 · MCQ4
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ4
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 Intellectual Property - Select all CORRECT statements considering the Australian context.
 
@@ -343,15 +353,50 @@ E 的末句表述过宽（商业创新本身不够），但课程按概括知识
 
 两个最高频陷阱：**Free ≠ free of charge**；**MIT ≠ Copyleft，GPL = Copyleft**。
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】01. 移动应用的版权保护范围
+
+原截图未显示题号 · 截图 13.49.04
+
+原页面有两个 “No answer text provided.” 选项，均保留。
+
+Assume that Australian law applies. Which aspects of a mobile application are typically protected specifically by copyright? Select all that apply.
+
+- **A.** The program's visual design
+
+- **B.** The program's codebase
+
+- **C.** The program's icon
+
+- **D.** The program’s name
+
+- **E.** The program's features
+
+- **F.** No answer text provided.
+
+- **G.** No answer text provided.
+
+- **H.** The program's algorithms
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![移动应用的版权保护范围 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.49.04.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
 <a id="topic-4"></a>
 
 ## 4. 契约式设计、JML 与文档注释
 
 参考难度为较易。识别规范工具的用途与参数注释写法。
 
-### 2025 S2 · MCQ4
+### 【往年】2025 S2 · MCQ4
 
-原题来源为 [2025 S2 Q1](../../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
+原题来源为 [2025 S2 Q1](../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
 
 Which of the following cannot be achieved using JML (Java Modeling Language)?
 
@@ -569,9 +614,11 @@ Java Specification
 
 参考答案：1-B、2-A、3-C。
 
-### 2025 S1 · MCQ9
+[返回主题目录](#主题目录)
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+### 【往年】2025 S1 · MCQ9
+
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 ```java
 /** 
@@ -697,15 +744,25 @@ Java Documentation & Contract
 - `requires` = restrict the input（限制输入）
 - `ensures` = guarantee the output（保证输出）
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】02. 参数文档注释的语法
+
+原题号 Question 5 · 截图 13.47.50
+
+![参数文档注释的语法](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.47.50.png)
+
+[返回主题目录](#主题目录)
+
 <a id="topic-5"></a>
 
-## 5. 设计模式 — Singleton 单例
+## 5. 设计模式 — Singleton 与其他常用模式
 
 参考难度为较易。理解私有构造函数、静态成员与唯一实例。
 
-### 2025 S2 · MCQ5
+### 【往年】2025 S2 · MCQ5
 
-原题来源为 [2025 S2 Q1](../../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
+原题来源为 [2025 S2 Q1](../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
 
 Considering the class below, which alternative is CORRECT:
 
@@ -830,9 +887,11 @@ Singleton Pattern 单例模式
 
 补充：上面的懒加载**不是线程安全的**，多线程同时首次调用可能创建出多个实例；需要线程安全时可加 `synchronized` 或用枚举/静态初始化。
 
-### 2025 S1 · MCQ2
+[返回主题目录](#主题目录)
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+### 【往年】2025 S1 · MCQ2
+
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 A programmer is implementing the Singleton design pattern in a public class called Authenticator. What constructor(s) should the programmer declare in Authenticator?
 
@@ -869,15 +928,250 @@ A programmer is implementing the Singleton design pattern in a public class call
 - 不写 ≠ 私有：默认构造器的可见性跟着类走，`public class` 的默认构造器就是 `public`。
 - `protected` 挡不住子类；`public`/默认权限挡不住同包。
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】03. DAO 的分类与意图
+
+原题号 Question 1 · 截图 13.41.33
+
+Based strictly on the Design Patterns classification taught in the lecture slides, how is the DAO pattern categorised, and what is its primary intent?
+
+- **A.** It is categorised as an Enterprise pattern outside the standard GoF classifications; its intent is to automatically map domain objects to database tables and queries (transparent object-relational mapping).
+
+- **B.** It is categorised as a Structural pattern; its intent is to decouple domain logic from persistence mechanisms so as not to expose details of data storage (e.g. databases, flat files).
+
+- **C.** It is categorised as a Structural pattern; its intent is to provide a unified, higher-level interface to a set of interfaces in a subsystem to make the subsystem easier to use.
+
+- **D.** It is categorised as a Behavioural pattern; its intent is to define a one-to-many dependency so that when one object changes state, all dependents are notified automatically.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![DAO 的分类与意图 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.41.33.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】04. 跨操作系统对话框的模式选择
+
+原题号 Question 2 · 截图 13.43.44
+
+Consider an text editor application. When the user closes the program without all open files saved, the application should instantiate and display a dialog box to ask if the user wishes to save their work. This dialog box will be a different class depending on the user's operating system. Which design pattern is most suited to this situation?
+
+- **A.** Template
+
+- **B.** Factory
+
+- **C.** State
+
+- **D.** Observer
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![跨操作系统对话框的模式选择 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.43.44.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】05. 物流路线算法与展示方式的模式选择
+
+原题号 Question 2 · 截图 13.44.30
+
+Consider a logistics application used by a package delivery company. They have written a number of algorithms to find the optimal route for a number of deliveries, and a number of ways the output route can be displayed (e.g. directions in text, or graphically). Which design pattern is most suited to this situation?
+
+- **A.** Factory
+
+- **B.** Template
+
+- **C.** State
+
+- **D.** Iterator
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![物流路线算法与展示方式的模式选择 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.44.30.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】06. UI 输入通知的模式选择
+
+原题号 Question 4 · 截图 13.43.56
+
+两张截图的选项顺序不同，已归入同一题。
+
+A UI framework allows visual components, which all extend a class called Component, to receive user input whenever the user presses a key. This can be implemented by having the Components frequently check a central InputManager class for input. Alternatively, the InputManager class could call a function in all Components when a key is pressed. However, both these methods are slow. Which design pattern could be used to implement a better solution?
+
+- **A.** Facade
+
+- **B.** DAO
+
+- **C.** Observer
+
+- **D.** Iterator
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![UI 输入通知的模式选择 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.43.56.png)
+
+![UI 输入通知的模式选择 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.46.34.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】07. 让 CrazyList 支持 for-each 的模式选择
+
+原题号 Question 4 · 截图 13.45.50
+
+A developer has invented a new data structure, called the CrazyList. This data structure offers substantial performance improvements compared with a standard ArrayList, but is very difficult for other developers to understand. The developer wishes to give other developers a way to use a for-each loop on the CrazyList. Which design pattern is most suited to this situation?
+
+- **A.** Template
+
+- **B.** Factory
+
+- **C.** Facade
+
+- **D.** Iterator
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![让 CrazyList 支持 for-each 的模式选择 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.45.50.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】08. Iterator 模式相对转数组的优势
+
+原题号 Question 3 · 截图 13.42.04
+
+两张截图的选项顺序不同，已归入同一题。
+
+A developer is implementing a LinkedList (a type of resizable array data structure) and wants to support iterating over the entire list. They know this is possible using either the Iterator design pattern, or by defining a method in the LinkedList class that converts its contents to an array. What are the benefits of the Iterator design pattern in this situation? Select all that apply.
+
+- **A.** The Iterator design pattern allows each element in the iteration to have a different type, whereas an array can only store elements of a single type
+
+- **B.** The Iterator design pattern allows for the traversal of the data contained within the LinkedList without exposing the structure of the LinkedList to a client, reducing coupling and interdependency in the codebase
+
+- **C.** The Iterator design pattern supports moving to a particular index in the iteration, unlike a foreach loop over an array
+
+- **D.** If the iteration is expected to be terminated early (for example, with the "break;" statement), the Iterator will demonstrate substantial performance benefits
+
+- **E.** If the contents of the LinkedList change during the loop, the iterator will be able to incorporate these changes much more easily
+
+- **F.** The Iterator design pattern would need to store only a single copy of each element in the LinkedList, while the array conversion must duplicate each element, approximately doubling memory usage if each element is large.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![Iterator 模式相对转数组的优势 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.42.04.png)
+
+![Iterator 模式相对转数组的优势 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.43.16.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】09. Facade 与包内类的访问权限
+
+原题号 Question 4 · 截图 13.47.42
+
+Consider a usage of the Facade design pattern in an email application which uses SpamFilter as the Facade for the spam package. Assuming SpamFilter is also in the spam package, what access modifiers would you expect to be used on classes in spam?
+
+- **A.** SpamFilter would be public, and the other classes would have no access modifier.
+
+- **B.** SpamFilter would be public, and the other classes would be protected
+
+- **C.** Every class in spam would have no access modifier
+
+- **D.** Every class in spam would be public.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![Facade 与包内类的访问权限 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.47.42.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】10. State 模式相对布尔标记的优势
+
+原题号 Question 2 · 截图 13.41.48
+
+另一个截图版本调整了选项顺序，并含一个 “No answer text provided.” 选项。完整版本作为正文，另一版本附在原始截图中。
+
+A developer wishes to store whether or not a user is logged in. They know this may be done with the State design pattern, or by using a boolean flag variable (and possibly additional variables to store data relevant to each state). Which of these are benefits of the State design pattern? Select all that apply.
+
+- **A.** Under proper implementation, the State design pattern makes it harder for the program to enter an illegal state related to variables for multiple states being simultaneously set.
+
+- **B.** The State design pattern allows for changes in state reacting to external stimuli, for example a user being forcefully logged-out when they log in on another device. This is more difficult with the boolean flag approach.
+
+- **C.** The State design pattern clearly delineates behaviour belonging to each state, improving code readability.
+
+- **D.** The length of the resulting program, as measured in lines of code, will be substantially shorter under the State design pattern.
+
+- **E.** If the program is extended to support some new behaviour (changing your password, say), then this can be added as a method to the abstract parent State class. This must then be implemented explicitly in all subclasses, which makes bugs related to changing your password while not being logged in less likely.
+
+- **F.** The boolean flag approach is limited to only two states, which may be limiting.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![State 模式相对布尔标记的优势 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.41.48.png)
+
+![State 模式相对布尔标记的优势 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.42.52.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】11. State 模式修改当前状态的方式
+
+原题号 Question 4 · 截图 13.49.41
+
+In the State design pattern, some state-based operations will need to modify the current state. There are two obvious ways this can be achieved:
+
+(i) these operations should return the new state, which is then assigned with the Context class
+
+(ii) these operations should execute a method like `Context.setState(State newState);`
+
+Which approach is generally preferred? Why?
+
+- **A.** (i), as it reduces coupling between the Context and State
+
+- **B.** (ii), as if some state subclasses do not change the state, they do not need to return anything
+
+- **C.** (ii), as it allows state operations to be run from classes other than Context
+
+- **D.** (i), as it is necessary if the Context class uses the Singleton pattern
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![State 模式修改当前状态的方式 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.49.41.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
 <a id="topic-6"></a>
 
 ## 6. Android
 
 参考难度为中等。记忆生命周期、返回栈、资源与组件规则。
 
-### 2025 S2 · MCQ2
+### 【往年】2025 S2 · MCQ2
 
-原题来源为 [2025 S2 Q1](../../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
+原题来源为 [2025 S2 Q1](../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
 
 When a new activity is started in Android, what happens to the previous activity in the activity stack?
 
@@ -1014,9 +1308,11 @@ A 打开 B 时：
 
 本题选 B，考的正是：启动新 Activity 时，旧 Activity 通常保留在返回栈中并经历暂停（可能进一步停止），而不是立即销毁。
 
-### 2025 S1 · MCQ5
+[返回主题目录](#主题目录)
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+### 【往年】2025 S1 · MCQ5
+
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 Which of the following is the recommended way to support multiple languages in an Android app?
 
@@ -1126,9 +1422,11 @@ Button 显示 Login / 登录 / Iniciar sesión
 
 一句话：**一份布局服务多种语言，靠切换字符串资源实现多语言显示。**
 
-### 2024 S1 · MCQ12
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ12
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 Select all INCORRECT statements related to Android Development.
 
@@ -1252,15 +1550,71 @@ Toast.makeText(this, "Saved successfully!", Toast.LENGTH_SHORT).show();
 | Listener | 监听事件，**多种 View 都适用** |
 | Toast | 短暂提示，自动消失 |
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】12. Activity 生命周期
+
+原题号 Question 3 · 截图 13.39.38
+
+Which one of the following methods is NOT involved in the lifecycle of the Activity class in Android?
+
+- **A.** onClose()
+
+- **B.** onCreate()
+
+- **C.** onStop()
+
+- **D.** onDestroy()
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![Activity 生命周期 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.39.38.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】13. ConstraintLayout 水平约束
+
+原题号 Question 5 · 截图 13.45.56
+
+In the Design view of a ConstraintLayout, element_2 has the following constraints set:
+
+```text
+Start → EndOf element_1 (0dp)
+End → EndOf element_1 (0dp)
+Bottom → TopOf element_1 (24dp)
+```
+
+How is element_2 positioned horizontally with respect to element_1?
+
+- **A.** element_2’s center is in line with element_1’s right side.
+
+- **B.** element_2’s right side is in line with element_1’s center.
+
+- **C.** element_2’s right side is in line with element_1’s right side.
+
+- **D.** element_2’s center is in line with element_1’s center.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![ConstraintLayout 水平约束 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.45.56.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
 <a id="topic-7"></a>
 
 ## 7. 数据持久化与文件格式
 
 参考难度为中等。结合文件结构判断数据分片是否合适。
 
-### 2025 S1 · MCQ7
+### 【往年】2025 S1 · MCQ7
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 A client wishes to apply “sharding” to a large amount of data persistently. Sharding is the practice of splitting a single large file into a large number of smaller files, each of which can be accessed concurrently for greater performance. For example, instead of a file with 10,000 instances, the client wants to generate 10 files, each with 1,000 instances. Which formats are suitable for this purpose?
 
@@ -1386,15 +1740,194 @@ out.writeObject(student2);
 
 注意：这不等于 XML、JSON、Serialization 完全不能分片，而是 **B、C、D 给出的理由不成立**。
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】14. CSV、XML、JSON 的字符转义
+
+原题号 Question 4 · 截图 13.44.48
+
+A client wishes to store some string data persistently. This data is encoded in ASCII and is expected to include all printable ASCII characters. Which format would not be suitable for this purpose?
+
+- **A.** CSV, as it does not support some ASCII characters, such as the comma "," and newline "\n".
+
+- **B.** XML, as it does not support some ASCII characters, such as the less than and greater than signs "<" and ">".
+
+- **C.** JSON, as it does not support some ASCII characters, such as the square brackets "[" and "]".
+
+- **D.** XML, JSON, and CSV all support the entire set of ASCII characters, provided they are properly escaped.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![CSV、XML、JSON 的字符转义 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.44.48.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】15. 图片的持久化存储方式
+
+原题号 Question 5 · 截图 13.44.05
+
+A client wishes to store user account data persistently. This data includes a profile picture, which is a 256 by 256 pixel PNG image, to be stored with each account. Which formats are suitable for this purpose?
+
+- **A.** Because the number of pixels in the image is fixed, the data is suitable for storing in a CSV array.
+
+- **B.** Because XML is based on HTML, XML is able to include images using standard HTML syntax.
+
+- **C.** Because java.awt.Image implements the Serializable interface, it can be represented in any format that supports serialization.
+
+- **D.** None of XML, JSON, or CSV natively support storing images. The data could be stored separately with its file path referenced inside XML, JSON, or CSV, or the image data could be manually encoded and decoded to a string-like representation.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![图片的持久化存储方式 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.44.05.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】16. Gson 将集合写成 JSON
+
+原题号 Question 2 · 截图 13.45.33
+
+Suppose a have a variable 'accounts' of type `Collection<Account>`. If gson is an instance of Gson, how can accounts be written to a JSON string?
+
+- **A.** `String data = gson.toJson(accounts, 0, accounts.size());`
+
+- **B.** `String data = gson.toJson(accounts.stream());`
+
+- **C.** `String data = gson.toJson(accounts);`
+
+- **D.** `String data = gson.toJson<Account>(accounts);`
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![Gson 将集合写成 JSON 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.45.33.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】17. Gson 将 JSON 读回泛型集合
+
+原题号 Question 2 · 截图 13.46.13
+
+选项中的 `TokenType` 按原截图保留。
+
+Suppose we have a variable 'accounts' of type `Collection<Account>`. If gson is an instance of Gson, accounts can be written to a JSON string as `String data = gson.toJson(accounts);`
+
+Next, how can the data variable be parsed back to a `Collection<Account>`?
+
+- **A.** `accounts = gson.fromJson(data, new TokenType<Collection<Account>>());`
+
+- **B.** `accounts = gson.fromJson(data);`
+
+- **C.** `accounts = gson.fromJson(data, new Collection<Account>());`
+
+- **D.** `accounts = gson.fromJson<Collection<Account>>(data);`
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![Gson 将 JSON 读回泛型集合 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.46.13.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】18. OpenCSV 字段绑定注解
+
+原题号 Question 2 · 截图 13.47.31
+
+Suppose a CSV document in use by a car sales platform has the following format:
+
+```text
+id-brand-model-year-price
+1234-"Mercedes-Benz"-"C-Class C300"-2018-50000
+5678-Ferrari-Superamerica-2006-420000
+```
+
+A developer wants to serialise this data to instances of the class Car using OpenCSV. Which annotation should be given to the field `private int yearMade;`?
+
+- **A.** `@CsvBindByPosition(position = 3)`
+
+- **B.** `@CsvBindByName`
+
+- **C.** `@CsvMarker("year")`
+
+- **D.** No annotation should be given to this field.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![OpenCSV 字段绑定注解 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.47.31.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】19. 持久化格式的文件大小比较
+
+原题号 Question 2 · 截图 13.48.46
+
+“No answer text provided.” 为原页面显示的空选项文字。
+
+A particular class LogEntry contains some string String fields, but mostly numerical primitives like int and double as fields. Instances of LogEntry typically require about 10 kilobytes of RAM to represent. Which ordering correctly depicts how we would expect the file sizes of a LogEntry stored in the JSON, CSV, XML, and Serialized formats to compare to each other?
+
+- **A.** Serialized < CSV < JSON < XML.
+
+- **B.** Serialized < CSV < XML < JSON.
+
+- **C.** CSV < Serialized < XML < JSON.
+
+- **D.** No answer text provided.
+
+- **E.** CSV < Serialized < JSON < XML.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![持久化格式的文件大小比较 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.48.46.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】20. SAX 流式读取的主要优势
+
+原题号 Question 2 · 截图 13.49.29
+
+Stream-based data reading (such as SAX) is recommended when the input file size is extremely large. In what aspect would we expect to notice the greatest improvement from using a stream-based system?
+
+- **A.** Memory usage (that is, the program uses less memory while reading the file)
+
+- **B.** Running time (that is, the program takes less time to read the same amount of data)
+
+- **C.** Correctness (that is, we are able to fix more malformed inputs)
+
+- **D.** Concurrency (that is, the program processes more data instances simultaneously)
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![SAX 流式读取的主要优势 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.49.29.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
 <a id="topic-8"></a>
 
 ## 8. UML 类图
 
 参考难度为中等。读懂类之间的关系、多重性与可见性。
 
-### 2024 S1 · MCQ9
+### 【往年】2024 S1 · MCQ9
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 Considering the class diagram below, which alternative is INCORRECT? 
 
@@ -1460,15 +1993,41 @@ B 把 Inheritance（继承）说成了 Aggregation（聚合）。其余三条 A�
 
 看到 `extends` 想到继承，看到**空心菱形**想到聚合，看到**实心菱形**想到组合。本题的唯一陷阱就在 B：把继承说成了聚合。
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】21. Notification Factory 类图判断
+
+原题号 Question 4 · 截图 13.42.19
+
+![Notification Factory 类图判断](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.42.19.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】22. DAO、State 与 Iterator 的 UML 关系
+
+原题号 Question 5 · 截图 13.42.27
+
+![DAO、State 与 Iterator 的 UML 关系](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.42.27.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】23. MyDAO 与 X 的 UML 关系
+
+原截图未显示题号 · 截图 13.48.59
+
+![MyDAO 与 X 的 UML 关系](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.48.59.png)
+
+[返回主题目录](#主题目录)
+
 <a id="topic-9"></a>
 
 ## 9. 代码坏味道与重构
 
 参考难度为中等。阅读代码，识别结构问题及合适的改进。
 
-### 2024 S1 · MCQ11
+### 【往年】2024 S1 · MCQ11
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 CODE SMELLS - Given the RecipeManager class, select all code smells present in the code and potential solutions to resolve them with refactoring.
 ```
@@ -1561,9 +2120,11 @@ CODE SMELLS - Given the RecipeManager class, select all code smells present in t
 
 口诀：**重复、写死、怪名、死代码、长参数**——五个全命中，只有"没问题"那条不选。坏味道的完整清单与对应重构手法见 [2.3-solid-重构-开放题.md](2.3-solid-重构-开放题.md) 的「知识点 2」。
 
-### 2024 S1 · MCQ14
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ14
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 Consider the classes:
 ```
@@ -1656,15 +2217,17 @@ C、E 是明确错误的两项：C 破坏封装，E 违反 SRP。A 按严格读�
 
 判断题通用三问：**这是真坏味道吗？解掉之后会不会引入更糟的问题？改动是否小而收益明确？** C、E 让设计更糟，B、D 是小步且收益明确的重构。
 
+[返回主题目录](#主题目录)
+
 <a id="topic-10"></a>
 
 ## 10. SOLID 设计原则
 
 参考难度为中等偏难。把开闭原则与里氏替换原则应用到具体设计。
 
-### 2025 S1 · MCQ8
+### 【往年】2025 S1 · MCQ8
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 ```java
 class Vector2 { 
@@ -1743,12 +2306,13 @@ class Vector3 extends Vector {
 
 同一道题在 [2.3-solid-重构-开放题.md](2.3-solid-重构-开放题.md) 的「真题讲解 2」里也有完整解析，可对照看。
 
-### 2024 S1 · MCQ10
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ10
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 A software application for managing a recipe database includes a Recipe class that has methods for displaying recipe details. The application is frequently updated to support new types of recipes (e.g., vegetarian, vegan, gluten-free) and to provide new ways of displaying information about these recipes.
-
 
 Select all design approaches that best adheres to the Open/Closed Principle (OCP) of SOLID?
 
@@ -1820,15 +2384,31 @@ A、D 都要求"新增功能时修改旧类"，直接违背 OCP；B、C 都把�
 
 同一道题在 [2.3-solid-重构-开放题.md](2.3-solid-重构-开放题.md) 的「真题讲解 3」里也有解析，结论一致（B、C）。
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】24. Vector2、Vector3 与里氏替换原则
+
+原题号 Question 5 · 截图 13.46.46
+
+**原题第 1 部分**
+
+![Vector2、Vector3 与里氏替换原则](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.46.46.png)
+
+**原题第 2 部分**
+
+![Vector2、Vector3 与里氏替换原则](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.46.54.png)
+
+[返回主题目录](#主题目录)
+
 <a id="topic-11"></a>
 
 ## 11. Git 提交历史
 
 参考难度为中等偏难。跟踪提交图、合并操作与分支指针。
 
-### 2025 S1 · MCQ1
+### 【往年】2025 S1 · MCQ1
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 In a git repository, Bernardo and Dylan have made conflicting changes to a tracked file. Bernardo pushes his changes first, and these are accepted. When Dylan goes to push, discovering the conflict, he uses “git fetch” and “git merge” to merge these changes, then pushes. Dylan uses “git log --graph –oneline” to see what has happened, which gives an output including.
 
@@ -1899,15 +2479,102 @@ Which of these statements is plausible?
 
 本题一条时间线记住就够：**D 是共同祖先 → C 是 Dylan 的本地提交、B 是 Bernardo 的远程提交 → 二者在 A 汇合**。于是"D 最新"（A 项）、"B 由 merge 创建"（B 项）、"C 曾被远程跟踪分支指向"（C 项）三句话都与图冲突。
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】25. Git 分支在内部代表什么
+
+原题号 Question 1 · 截图 13.42.41
+
+![Git 分支在内部代表什么](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.42.41.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】26. 创建分支后 HEAD 与分支指针的变化
+
+原题号 Question 3 · 截图 13.42.57
+
+In a git repository, HEAD and the branch main both point to commit H. A user runs "git branch other" and then creates a commit J. Where do HEAD, main, and other point?
+
+- **A.** main and HEAD point to H; other points to J.
+
+- **B.** other and HEAD point to H; main points to J.
+
+- **C.** main points to H; HEAD and other point to J.
+
+- **D.** other points to H; HEAD and main point to J.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![创建分支后 HEAD 与分支指针的变化 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.42.57.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】27. 根据 Git 提交图定位短哈希
+
+原题号 Question 5 · 截图 13.41.10
+
+![根据 Git 提交图定位短哈希](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.41.10.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】28. Git 合并提交与分支操作
+
+原题号 Question 3 · 截图 13.43.52
+
+For the following git repo: https://gitlab.cecs.anu.edu.au/comp2100-2024-s2-marker/git-quiz-project, one git commit in this repository merges two branches together. Which explanation as to how the developer made this commit is the most plausible?
+
+- **A.** They checked out the factorial-implementation branch, and ran "git merge main". Because no changes had been made to the main branch since factorial-implementation was created, the merge was performed automatically.
+
+- **B.** They checked out the main branch, ran "git merge factorial-implementation", and selected which changes should be included.
+
+- **C.** They checked out the factorial-implementation branch, ran "git merge main", and selected which changes should be included.
+
+- **D.** They checked out the main branch, and ran "git merge factorial-implementation". Because no changes had been made to the main branch since factorial-implementation was created, the merge was performed automatically.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![Git 合并提交与分支操作 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.43.52.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】29. Git 历史中的已删除文件
+
+原题号 Question 1 · 截图 13.44.24
+
+For the following git repo: https://gitlab.cecs.anu.edu.au/comp2100-2024-s2-marker/git-quiz-project, what file was deleted from this git repository?
+
+- **A.** The file "MyPasswords.txt" was added in a commit, but the commit itself was later deleted.
+
+- **B.** Of all the files added in any commit to this repository, none of them were later deleted.
+
+- **C.** The file "CatPicture.png" was briefly included on the factorial-implementation branch.
+
+- **D.** Git does not provide functionality to view the names of deleted files as a security measure.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![Git 历史中的已删除文件 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.44.24.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
 <a id="topic-12"></a>
 
 ## 12. Tokeniser、Parser 与文法
 
 参考难度为中等偏难。从概念判断过渡到文法推导与语法树分析。
 
-### 2025 S2 · MCQ3
+### 【往年】2025 S2 · MCQ3
 
-原题来源为 [2025 S2 Q1](../../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
+原题来源为 [2025 S2 Q1](../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
 
 Considering the grammar below and assuming that there is a parser for it, which instruction is NOT acceptable for this grammar?
 
@@ -1969,9 +2636,11 @@ Considering the grammar below and assuming that there is a parser for it, which 
 
 本题唯一的坑是 C 的缺 `=`。别被 A 的负号骗——文法没写"非负整数"，`-12` 照样合法；真正的语法错误是少了一个终结符。
 
-### 2025 S1 · MCQ6
+[返回主题目录](#主题目录)
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+### 【往年】2025 S1 · MCQ6
+
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 Consider the grammar with initial symbol ‘sentence’ and production rules given by
 
@@ -2058,9 +2727,11 @@ sentence
 
 > 细节补充：这条文法对 `noun_phrase` 是**左递归**的（`noun_phrase → noun_phrase "that" …`），严格来说直接写递归下降会无限递归，实际实现要先改写成 `noun_phrase → noun ("that" verb noun_phrase)*` 之类的形式。本题只问树根长什么样，按"从开始符号展开"的语义读即可，不影响答案。
 
-### 2024 S1 · MCQ7
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ7
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 Tokenisation - Select all INCORRECT options.
 
@@ -2120,9 +2791,11 @@ Tokenisation - Select all INCORRECT options.
 
 记住三段流水线：**tokenise（切）→ parse（搭树）→ evaluate（算）**。题目把后两段的活儿说成分词的，就是错误选项。
 
-### 2024 S1 · MCQ13
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ13
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 Select all CORRECT statements that apply, considering the following context-free 
 grammar that attempts to model a subset of a syntax of a new programming language.
@@ -2194,15 +2867,52 @@ S ⇒ Type Identifier ;
 
 > 顺带一个反直觉点：因为 `Type -> Identifier`，`"a b;"` 在这个文法里也合法（`Type` 取 `a`、`Identifier` 取 `b`）。文法只规定形状，不管语义是否合理——判题时按文法走，别用 Java 的常识去否决。
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】30. 文法与语法树根节点
+
+原题号 Question 5 · 截图 13.49.47
+
+Consider the grammar with initial symbol 'sentence' and production rules given by
+
+```text
+sentence → noun_phrase verb noun_phrase
+noun_phrase → adjective noun_phrase | noun | noun_phrase "that" verb noun_phrase
+noun → "cats" | "dogs" | "rabbits" | "people"
+adjective → "white" | "black" | "gray" | "brown"
+verb → "like" | "chase" | "talk to" | "see"
+```
+
+implemented with a tokeniser that ignores capitalisation and punctuation, and a recursive descent parser.
+
+When applied to the input "Dogs chase gray rabbits that talk to white rabbits.", what node would be at the root of the parse tree?
+
+- **A.** a Sentence with verb="chase"
+
+- **B.** a Sentence with verb="talk to"
+
+- **C.** a Verb with string "chase"
+
+- **D.** a Verb with string "talk to"
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![文法与语法树根节点 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.49.47.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
 <a id="topic-13"></a>
 
 ## 13. 软件测试与分支覆盖
 
 参考难度为较难。分析控制流、短路条件与最少测试输入。
 
-### 2025 S1 · MCQ3
+### 【往年】2025 S1 · MCQ3
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 Consider a program with the following control flow graph, where each oval represents a distinct statement.
 
@@ -2224,9 +2934,11 @@ What is the minimum number of test cases needed to achieve branch complete cover
 
 - **G.** 21
 
-### 2024 S1 · MCQ2
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ2
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 How many branches are present in the following function?
 ```
@@ -2270,9 +2982,11 @@ How many branches are present in the following function?
 
 - **F.** 16
 
-### 2024 S1 · MCQ3
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ3
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 本题引用的 `checkAnswer` 函数见紧邻上方的 2024 S1 · MCQ2。
 
@@ -2287,15 +3001,163 @@ How many distinct test inputs are necessary to ensure full branch coverage of
 
 - **D.** 8
 
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】31. 字符串结果的 JUnit 断言
+
+原题号 Question 1 · 截图 13.46.08
+
+An implementation of string reversal has a test case that begins with
+
+```java
+String r = CustomReverse.reverse("hello");
+```
+
+Which Junit assertion could then be used to check the output in reverse in this case?
+
+- **A.** `assertEquals("olleh", r);`
+
+- **B.** `assertSame("olleh", r);`
+
+- **C.** `assertApproximatelyEquals("olleh", r);`
+
+- **D.** `assertEquals("olleh", r, 1e-10);`
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![字符串结果的 JUnit 断言 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.46.08.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】32. 不同覆盖标准的包含关系
+
+原题号 Question 1 · 截图 13.49.24
+
+Which statement is true about the relationship between different types of coverage?
+
+- **A.** Path coverage subsumes branch coverage.
+
+- **B.** Branch coverage subsumes condition coverage.
+
+- **C.** Branch coverage subsumes path coverage.
+
+- **D.** Condition coverage subsumes branch coverage.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![不同覆盖标准的包含关系 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.49.24.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】33. 70% 路径覆盖能够推出什么
+
+原题号 Question 1 · 截图 13.47.11
+
+Through instrumentation, a test suite MyTests has been found to achieve 70% path coverage. What is known about the branch coverage of MyTests?
+
+- **A.** MyTests may have less than 70% branch coverage
+
+- **B.** MyTests has at least 70% branch coverage.
+
+- **C.** MyTests has 100% branch coverage.
+
+- **D.** MyTests has exactly 70% branch coverage.
+
+- **E.** Nothing; path coverage does’t say anything about branch coverage.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![70% 路径覆盖能够推出什么 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.47.11.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】34. 阶乘函数的 JUnit 测试评审
+
+原题号 Question 1 · 截图 13.45.22
+
+**原题第 1 部分**
+
+![阶乘函数的 JUnit 测试评审](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.45.22.png)
+
+**原题第 2 部分**
+
+![阶乘函数的 JUnit 测试评审](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.45.27.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】35. JUnit 参数化测试代码纠错
+
+原截图未显示题号 · 截图 13.48.35
+
+原截图有两条相同的 “On line 10, the test function should be non-static.” 选项，均保留。
+
+**原题第 1 部分**
+
+![JUnit 参数化测试代码纠错](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.48.35.png)
+
+**原题第 2 部分**
+
+![JUnit 参数化测试代码纠错](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.48.39.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】36. 控制流图与最少分支覆盖用例
+
+原题号 Question 5 · 截图 13.44.58
+
+![控制流图与最少分支覆盖用例](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.44.58.png)
+
+[返回主题目录](#主题目录)
+
+<a id="topic-13A"></a>
+
+## 13A. 性能分析（补充主题）
+
+参考难度为中等偏难。用 Amdahl 定律估算整体加速比。
+
+### 【Quiz 2】37. Amdahl 定律与整体加速比
+
+原题号 Question 5 · 截图 13.40.13
+
+Your program has one very slow procedure that consumes 80% of the total time. Next, you improve it by a factor of 5. What is the performance gain in the overall latency?
+
+- **A.** 2.777778
+
+- **B.** 3.777778
+
+- **C.** 1.7777779
+
+- **D.** 0.44444445
+
+- **E.** Not possible to know without the performance of the other procedures.
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![Amdahl 定律与整体加速比 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.40.13.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
 <a id="topic-14"></a>
 
-## 14. 树 — BST、AVL 与红黑树
+## 14. 树 — BST、AVL、红黑树与数据结构选择
 
 参考难度为较难。手动推演插入、旋转、颜色变化、树高与遍历。
 
-### 2025 S2 · MCQ1
+### 【往年】2025 S2 · MCQ1
 
-原题来源为 [2025 S2 Q1](../../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
+原题来源为 [2025 S2 Q1](../exam-practice-questions/past-exams/2025-2/src/Q1/MCQQuestions.pdf)。
 
 ![原题红黑树](图片/2025-S2-MCQ1-红黑树.png)
 
@@ -2309,9 +3171,11 @@ After inserting the node with key 25 into the Red-Black Tree shown above, select
 
 - **D.** The in-order traversal of the tree is 20, 10, 34, 23, 25, 30.
 
-### 2025 S1 · MCQ4
+[返回主题目录](#主题目录)
 
-原题来源为 [2025 S1 Q4](../../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
+### 【往年】2025 S1 · MCQ4
+
+原题来源为 [2025 S1 Q4](../exam-practice-questions/past-exams/2025-1/src/Q4/MC_Questions_2025_S1.pdf)。
 
 Consider this AVL Tree, with keys sorted in ascending order, and root node 7.
 
@@ -2329,9 +3193,11 @@ When the key 6 is inserted, what type of rotation, if any, would be performed to
 
 - **E.** No rotation
 
-### 2024 S1 · MCQ5
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ5
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 You built a plain binary search tree and added the following nodes in this order:
 80, 97, 49, 2, 20, 52, 25, 9, 27, 76
@@ -2347,9 +3213,11 @@ Which is the CORRECT tree height?
 
 - **D.** 7
 
-### 2024 S1 · MCQ6
+[返回主题目录](#主题目录)
 
-原题来源为 [2024 S1 Q4](../../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
+### 【往年】2024 S1 · MCQ6
+
+原题来源为 [2024 S1 Q4](../exam-practice-questions/past-exams/2024-1/src/Q4/Q4README.md)。
 
 You built a red-black tree and added the following nodes in this order 
   16, 34, 18, 40, 57, 15 (You first added node 16, then node 34, then node 18, and so on). 
@@ -2363,3 +3231,128 @@ You built a red-black tree and added the following nodes in this order
 - **C.** 15 RED, 57 RED, 34 RED, 16 BLACK, 40 BLACK, 18 BLACK
 
 - **D.** 34 RED, 16 BLACK, 15 RED, 57 RED, 40 BLACK, 18 BLACK
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】38. 按用户 ID 高频查询的数据结构选择
+
+原题号 Question 5 · 截图 13.43.27
+
+两个截图中的原题号分别为 Question 5 和 Question 1，选项顺序不同，已归入同一题。
+
+A social media application needs to store instances of a User class with corresponding numerical IDs in a data structure. The IDs for each user are unique, starting at 1 for the first user, and counting up. It is expected that new Users will be added to this data structure at a rate of about 100 000 per day, and removed at a similar rate, but it is necessary to retrieve users by their ID at a rate of 100 000 000 per day. Which data structure is most appropriate for this goal?
+
+- **A.** An ArrayList of Users
+
+- **B.** An AVL Tree with Integers as keys and Users as values
+
+- **C.** An Array of Users
+
+- **D.** A Map with Integers as keys and Users as values
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![按用户 ID 高频查询的数据结构选择 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.43.27.png)
+
+![按用户 ID 高频查询的数据结构选择 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.43.39.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】39. 前序遍历中 M 的相邻节点
+
+原题号 Question 3 · 截图 13.44.40
+
+![前序遍历中 M 的相邻节点](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.44.40.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】40. 后序遍历中 Y 的相邻节点
+
+原题号 Question 3 · 截图 13.45.41
+
+**原题第 1 部分**
+
+![后序遍历中 Y 的相邻节点](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.45.41.png)
+
+**原题第 2 部分**
+
+![后序遍历中 Y 的相邻节点](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.45.45.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】41. 删除双子节点后的替代节点
+
+原题号 Question 3 · 截图 13.46.21
+
+**原题第 1 部分**
+
+![删除双子节点后的替代节点](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.46.21.png)
+
+**原题第 2 部分**
+
+![删除双子节点后的替代节点](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.46.25.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】42. AVL 插入 6 后的旋转
+
+原题号 Question 3 · 截图 13.47.37
+
+![AVL 插入 6 后的旋转](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.47.37.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】43. 红黑树的合法性
+
+原截图未显示题号 · 截图 13.48.53
+
+![红黑树的合法性](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.48.53.png)
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】44. 区间键红黑树的插入与前序遍历
+
+原题号 Question 4 · 截图 13.39.46
+
+Consider a red-black tree whose keys are intervals. An interval is represented by (startTime, endTime).
+
+For a pair of intervals i1, i2, we write i1 < i2, if
+
+1. i1.startTime < i2.startTime, or
+2. i1.startTime = i2.startTime, and i1.endTime < i2.endTime
+
+You build a red-black tree by adding the following keys in the following order:
+
+```text
+(9, 16), (5, 15), (5, 10), (8, 14), (2, 11), (2, 8)
+```
+
+If you walk in the final tree using the pre-order approach, what will be the CORRECT node and colour output?
+
+- **A.** (5, 15) BLACK, (2, 11) BLACK, (2, 8) RED, (5, 10) RED, (9, 16) BLACK, (8, 14) RED
+
+- **B.** (2, 8) RED, (5, 10) RED, (2, 11) BLACK, (8, 14) RED, (9, 16) BLACK, (5, 15) BLACK
+
+- **C.** (9, 16) BLACK, (5, 10) RED, (2, 11) BLACK, (8, 14) RED, (2, 8) RED, (5, 15) BLACK
+
+- **D.** (5, 15) BLACK, (9, 16) BLACK, (2, 8) RED, (5, 10) RED, (2, 11) BLACK, (8, 14) RED
+
+<details>
+<summary>查看原始截图与批改标记</summary>
+
+![区间键红黑树的插入与前序遍历 原始截图](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.39.46.png)
+
+</details>
+
+[返回主题目录](#主题目录)
+
+### 【Quiz 2】45. 三阶 B 树删除节点 14
+
+原题号 Question 3 · 截图 13.49.34
+
+![三阶 B 树删除节点 14](../quiz%202/%E6%88%AA%E5%B1%8F2026-11-13%2013.49.34.png)
+
+[返回主题目录](#主题目录)
