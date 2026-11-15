@@ -33,7 +33,6 @@ DOCS = [
     dict(part="p1", num="1.2", label="Tokeniser 与 Parser", file="1.2-tokeniser-易读版.md"),
     dict(part="p2", num="2.1", label="UML 与设计模式", file="2.1-design-patterns-uml-易读版.md"),
     dict(part="p2", num="2.2", label="XML 与文件格式", file="2.2-xml-和其他文件格式-易读版.md"),
-    dict(part="p2", num="2.3", label="SOLID 与重构", file="../0选择题/2.3-solid-重构-开放题.md"),
     dict(part="p3", num="3.1", label="选择题真题与 Quiz 2", file="../0选择题/选择题真题和 quiz 参考.md"),
     dict(part="p3", num="3.3", label="速查资料与考点预测", file="../0选择题/3.3-选择题速查资料-考点预测.md"),
     dict(part="p4", num="05", label="树结构（可略读）", file="基本不用看05-trees易读版.md"),
@@ -225,11 +224,33 @@ def build_doc(index: int, doc: dict) -> dict:
     )
 
     doc["id"] = doc_id
+    doc["prefix"] = prefix
+    doc["abs"] = path
     doc["heads"] = heads
     doc["html"] = toc_block + html
     doc["chars"] = len(md)
     doc["path"] = os.path.relpath(path, ROOT)
     return doc
+
+
+def rewrite_cross_links(html: str, md_dir: str, by_abs: dict) -> str:
+    """把指向其它 md 的链接改成同一页内的锚点。"""
+    def repl(m: re.Match) -> str:
+        href = m.group(1)
+        if href.startswith(("http", "#", "mailto:", "data:")):
+            return m.group(0)
+        path_part, _, anchor = href.partition("#")
+        target = os.path.normpath(os.path.join(md_dir, urllib.parse.unquote(path_part)))
+        doc = by_abs.get(target)
+        if not doc:
+            return m.group(0)
+        if anchor:
+            cand = "%s-%s" % (doc["prefix"], urllib.parse.unquote(anchor))
+            if cand in doc["ids"]:
+                return 'href="#%s"' % cand
+        return 'href="#doc-%s"' % doc["id"]
+
+    return re.sub(r'href="([^"]+)"', repl, html)
 
 
 def build_nav_final(docs: list[dict]) -> str:
@@ -262,6 +283,11 @@ def build_nav_final(docs: list[dict]) -> str:
 
 def main() -> None:
     docs = [build_doc(i, dict(d)) for i, d in enumerate(DOCS)]
+    by_abs = {os.path.normpath(d["abs"]): d for d in docs}
+    for d in docs:
+        d["ids"] = set(ID_RE.findall(d["html"]))
+    for d in docs:
+        d["html"] = rewrite_cross_links(d["html"], os.path.dirname(d["abs"]), by_abs)
 
     n_sec = sum(1 for d in docs for h in d["heads"] if h["level"] == 2)
     n_sub = sum(1 for d in docs for h in d["heads"] if h["level"] == 3)
@@ -482,6 +508,8 @@ main{flex:1; min-width:0}
 }
 .doc-body h3{font-size:17px; line-height:1.6; margin:30px 0 10px; color:#2b2c31; scroll-margin-top:74px}
 .doc-body h4{font-size:15.5px; margin:22px 0 8px; color:var(--ink2)}
+.doc-body h5{font-size:14.6px; margin:19px 0 6px; color:#3a3b41; font-weight:600}
+.doc-body h6{font-size:13.8px; margin:16px 0 6px; color:#4a4b52}
 .doc-body h2 .secnum{margin-right:6px; color:var(--accent); font-size:15px; vertical-align:2px}
 .doc-body p{margin:0 0 14px}
 .doc-body ul,.doc-body ol{padding-left:1.45em; margin:0 0 15px}
